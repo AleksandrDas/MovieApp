@@ -1,0 +1,35 @@
+﻿@model MovieApp.Models.MainViewModel
+@{
+    ViewBag.Title = "Home";
+}
+<div class="page-header">
+    <h1>Filmu Datubaze</h1>
+</div>
+<div class="row">
+    <div class="col-sm-4 col-md-3">
+        <div class="list-group">
+            <a href="#" class="list-group-item active">Kinoteatri</a>
+            @foreach (var cinema in Model.Cinemas)
+            {
+                <a href="@Url.Action("Index", new { id = cinema.Id })" class="list-group-item">@cinema.Name<span class="badge">@cinema.MovieCount</span></a>
+            }
+        </div>
+    </div>
+    <div class="col-sm-8 col-md-9">
+        <div class="row">
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption text-center">
+                            <h3>@movie.Title</h3>
+                            <p>@movie.Year</p>
+                            <p><a href="@Url.Action("Movie", new { id = movie.Id})" class="btn btn-primary" role="button">Rezervet</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

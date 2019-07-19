@@ -1,0 +1,21 @@
+﻿@model List<MovieApp.Models.MovieModel>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Filmas</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nosaukums</th>
+        <th>Gads</th>
+        
+    </tr>
+    @foreach (var movie in Model)
+    {
+<tr>
+    <td>@movie.Title</td>
+    <td>@movie.Year</td>
+</tr>
+    }
+</table>

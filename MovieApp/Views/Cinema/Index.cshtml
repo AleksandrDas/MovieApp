@@ -1,0 +1,23 @@
+﻿@model List<MovieApp.Models.CinemaModel>
+@{
+    ViewBag.Title = "Cinema list";
+}
+
+<h2>Cinema list</h2>
+@Html.ActionLink("Pievieno jaunu", "Edit", "Cinema", null, new { @class = "btn btn - primary" })
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nosaukums</th>
+        <th>Adrese</th>
+        <th></th>
+    </tr>
+    @foreach (var cinema in Model)
+    {
+<tr>
+    <th>@Html.ActionLink(@cinema.Name, "Edit", "Cinema", new { id = cinema.Id }, null)</th>
+    <th>@cinema.Adress</th>
+    <th>@Html.ActionLink("Dzest", "Delete", "Cinema", new { id = cinema.Id }, null)</th>
+</tr>
+    }
+</table>
